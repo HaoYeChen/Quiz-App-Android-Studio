@@ -3,6 +3,7 @@ package com.example.quizzapplication;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -57,10 +58,12 @@ public class LoginActivity extends AppCompatActivity {
             textView.setText("FAILURE");
         }
 
-
-
-        BrugernavnLogin = (EditText)findViewById(R.id.BrugernavnLogin);
-        KodeordLogin = (EditText)findViewById(R.id.KodeordLogin);
+        BrugernavnLogin = (EditText)findViewById(R.id.editTextBrugernavnLogin);
+        BrugernavnLogin.setTextColor(Color.WHITE);
+        BrugernavnLogin.setHintTextColor(Color.WHITE);
+        KodeordLogin = (EditText)findViewById(R.id.editTextKodeordLogin);
+        KodeordLogin.setTextColor(Color.WHITE);
+        KodeordLogin.setHintTextColor(Color.WHITE);
         Loginbtn = (Button)findViewById(R.id.Loginbtn);
         Regbtn = (Button)findViewById(R.id.Regbtn);
 
@@ -85,15 +88,6 @@ public class LoginActivity extends AppCompatActivity {
         String z = null;
         Boolean isSuccess = false;
 
-        @Override
-        protected void onPreExecute() {
-
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-
-        }
 
         @Override
         protected String doInBackground(String... strings) {
@@ -128,7 +122,7 @@ public class LoginActivity extends AppCompatActivity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                Toast.makeText(LoginActivity.this, "Check email or password", Toast.LENGTH_LONG).show();
+                                Toast.makeText(LoginActivity.this, "Tjek din brugernavn eller kodeord", Toast.LENGTH_LONG).show();
                             }
                         });
 

@@ -5,14 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignUpActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/background">>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="25dp"
         android:id="@+id/editTextFornavn"
-        android:hint="Fornavn"/>
+        android:hint="Fornavn"
+        />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,15 +51,6 @@
         android:text="Register"
         android:id="@+id/editTextRegisterbtn"
         />
-
-    <!--<TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editTextStatus"
-        android:textSize="25dp"
-        android:layout_marginTop="20dp"
-        android:text="Register"
-        />-->
 
     <TextView
         android:id="@+id/textView"

@@ -2,6 +2,7 @@ package com.example.quizzapplication;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -36,7 +37,6 @@ public class SignUpActivity extends AppCompatActivity {
     private TextView textView;
     EditText Fornavn,Efternavn,Brugernavn,Email,Kodeord;
     Button registerbtn;
-    //TextView status;
     Statement stmt;
     private static String RolleId ="2";
     private Connection con = null;
@@ -68,10 +68,20 @@ public class SignUpActivity extends AppCompatActivity {
 
         //tildele variabel
         Fornavn = findViewById(R.id.editTextFornavn);
+        Fornavn.setTextColor(Color.WHITE);
+        Fornavn.setHintTextColor(Color.WHITE);
         Efternavn = findViewById(R.id.editTextEfternavn);
+        Efternavn.setTextColor(Color.WHITE);
+        Efternavn.setHintTextColor(Color.WHITE);
         Brugernavn = findViewById(R.id.editTextBrugernavn);
+        Brugernavn.setTextColor(Color.WHITE);
+        Brugernavn.setHintTextColor(Color.WHITE);
         Email = findViewById(R.id.editTextEmail);
+        Email.setTextColor(Color.WHITE);
+        Email.setHintTextColor(Color.WHITE);
         Kodeord = findViewById(R.id.editTextKodeord);
+        Kodeord.setTextColor(Color.WHITE);
+        Kodeord.setHintTextColor(Color.WHITE);
         registerbtn = findViewById(R.id.editTextRegisterbtn);
         //status = findViewById(R.id.editTextStatus);
 
@@ -89,10 +99,7 @@ public class SignUpActivity extends AppCompatActivity {
         awesomeValidation.addValidation(this,R.id.editTextKodeord,
                 ".{6,}",R.string.invalid_Kodeord);
 
-
-
-
-
+        //klik på knappen
         registerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

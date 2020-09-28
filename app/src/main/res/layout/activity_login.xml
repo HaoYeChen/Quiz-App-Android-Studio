@@ -5,20 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/background">
+
+    <ImageView
+        android:id="@+id/imageLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="361dp"
+        android:layout_gravity="center"
+        android:background="@drawable/quizlogoblack" />
 
     <EditText
+        android:id="@+id/editTextBrugernavnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:hint="Brugernavn"
-        android:id="@+id/BrugernavnLogin"/>
+        android:inputType="text"
+        android:hint="Brugernavn"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:hint="Kodeord"
-        android:id="@+id/KodeordLogin"/>
+        android:id="@+id/editTextKodeordLogin"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
