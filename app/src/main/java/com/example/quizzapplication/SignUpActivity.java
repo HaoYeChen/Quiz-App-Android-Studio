@@ -5,13 +5,19 @@ import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -26,7 +32,7 @@ import static com.example.quizzapplication.ConnectionClass.username;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    //textView
+    //initialisere variabel
     private TextView textView;
     EditText Fornavn,Efternavn,Brugernavn,Email,Kodeord;
     Button registerbtn;
@@ -34,6 +40,8 @@ public class SignUpActivity extends AppCompatActivity {
     Statement stmt;
     private static String RolleId ="2";
     private Connection con = null;
+
+    AwesomeValidation awesomeValidation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +66,7 @@ public class SignUpActivity extends AppCompatActivity {
             textView.setText("FAILURE");
         }
 
-
+        //tildele variabel
         Fornavn = findViewById(R.id.editTextFornavn);
         Efternavn = findViewById(R.id.editTextEfternavn);
         Brugernavn = findViewById(R.id.editTextBrugernavn);
@@ -67,10 +75,34 @@ public class SignUpActivity extends AppCompatActivity {
         registerbtn = findViewById(R.id.editTextRegisterbtn);
         //status = findViewById(R.id.editTextStatus);
 
+        //initialisere validation style
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+        //Tilføj validation for fornavn, efternavn,brugernavn,email og kodeord
+        awesomeValidation.addValidation(this,R.id.editTextFornavn,
+                RegexTemplate.NOT_EMPTY,R.string.invalid_Fornavn);
+        awesomeValidation.addValidation(this,R.id.editTextEfternavn,
+                RegexTemplate.NOT_EMPTY,R.string.invalid_Efternavn);
+        awesomeValidation.addValidation(this,R.id.editTextBrugernavn,
+                RegexTemplate.NOT_EMPTY,R.string.invalid_Brugernavn);
+        awesomeValidation.addValidation(this,R.id.editTextEmail,
+                Patterns.EMAIL_ADDRESS,R.string.invalid_Email);
+        awesomeValidation.addValidation(this,R.id.editTextKodeord,
+                ".{6,}",R.string.invalid_Kodeord);
+
+
+
+
+
         registerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new registeruser().execute("");
+
+                if (awesomeValidation.validate()){
+                    Toast.makeText(getApplicationContext(),"Form validation succesfully..", Toast.LENGTH_SHORT).show();
+                    new registeruser().execute("");
+                }else{
+                    Toast.makeText(getApplicationContext(),"Validation failed",Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -78,71 +110,6 @@ public class SignUpActivity extends AppCompatActivity {
 
         String z = "";
         Boolean isSuccess = false;
-
-
-
-        /*@Override
-        protected void onPreExecute() {
-            status.setText("Sending Data to Database");
-        }*/
-
-        /*@Override
-        protected void onPostExecute(String s) {
-            //status.setText("Registration Successful");
-            *//*Fornavn.setText("");
-            Efternavn.setText("");
-            Brugernavn.setText("");
-            Email.setText("");
-            Kodeord.setText("");*//*
-            if (Fornavn.getText().toString().trim().isEmpty()){
-                Fornavn.setError("FIELD CANNOT BE EMPTY");
-                Fornavn.requestFocus();
-                Fornavn.equals("");
-            }
-            if (Efternavn.getText().toString().trim().isEmpty()){
-                Efternavn.setError("FIELD CANNOT BE EMPTY");
-                Efternavn.requestFocus();
-                Efternavn.equals("");
-            }
-            if (Brugernavn.getText().toString().trim().isEmpty()){
-                Brugernavn.setError("FIELD CANNOT BE EMPTY");
-                Brugernavn.requestFocus();
-                Brugernavn.equals("");
-            }
-            if (Email.getText().toString().trim().isEmpty()){
-                Email.setError("FIELD CANNOT BE EMPTY");
-                Email.requestFocus();
-                Email.equals("");
-            }
-            if (Kodeord.getText().toString().trim().isEmpty()){
-                Kodeord.setError("FIELD CANNOT BE EMPTY");
-                Kodeord.requestFocus();
-                Kodeord.equals("");
-            }
-
-           *//* Fornavn.getText().toString().trim();
-            Efternavn.getText().toString().trim();
-            Brugernavn.getText().toString().trim();
-            Email.getText().toString().trim();
-            Kodeord.getText().toString().trim();
-            if (Fornavn.length()==0){
-                Fornavn.requestFocus();
-                Fornavn.setError("FIELD CANNOT BE EMPTY");}
-            if (Efternavn.length()==0){
-                Efternavn.requestFocus();
-                Efternavn.setError("FIELD CANNOT BE EMPTY");}
-            if (Brugernavn.length()==0){
-                Brugernavn.requestFocus();
-                Brugernavn.setError("FIELD CANNOT BE EMPTY");}
-            if (Email.length()==0){
-                Email.requestFocus();
-                Email.setError("FIELD CANNOT BE EMPTY");}
-            if (Kodeord.length()==0){
-                Kodeord.requestFocus();
-                Kodeord.setError("FIELD CANNOT BE EMPTY");}
-            if (Fornavn.isEmpty)*//*
-
-        }*/
 
         @Override
         protected String doInBackground(String... strings) {

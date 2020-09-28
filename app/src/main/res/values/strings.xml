@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">QuizzApplication</string>
+    <string name="invalid_Fornavn">Indtast Venligst Gyldig Fornavn</string>
+    <string name="invalid_Email">Indtast Venligst Gyldig Email</string>
+    <string name="invalid_Efternavn">Indtast Venligst Gyldig Efternavn</string>
+    <string name="invalid_Brugernavn">Indtast Venligst Gyldig Brugernavn</string>
+    <string name="invalid_Kodeord">Indtast Venligst Gyldig Kodeord</string>
 </resources>
