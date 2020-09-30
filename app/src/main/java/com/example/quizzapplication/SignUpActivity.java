@@ -1,6 +1,7 @@
 package com.example.quizzapplication;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -36,7 +37,7 @@ public class SignUpActivity extends AppCompatActivity {
     //initialisere variabel
     private TextView textView;
     EditText Fornavn,Efternavn,Brugernavn,Email,Kodeord;
-    Button registerbtn;
+    Button Registerbtn, Tilbagebtn;
     Statement stmt;
     private static String RolleId ="2";
     private Connection con = null;
@@ -82,7 +83,8 @@ public class SignUpActivity extends AppCompatActivity {
         Kodeord = findViewById(R.id.editTextKodeord);
         Kodeord.setTextColor(Color.WHITE);
         Kodeord.setHintTextColor(Color.WHITE);
-        registerbtn = findViewById(R.id.editTextRegisterbtn);
+        Registerbtn = findViewById(R.id.Registerbtn);
+        Tilbagebtn = findViewById(R.id.Tilbagebtn);
         //status = findViewById(R.id.editTextStatus);
 
         //initialisere validation style
@@ -99,8 +101,8 @@ public class SignUpActivity extends AppCompatActivity {
         awesomeValidation.addValidation(this,R.id.editTextKodeord,
                 ".{6,}",R.string.invalid_Kodeord);
 
-        //klik på knappen
-        registerbtn.setOnClickListener(new View.OnClickListener() {
+        //registrere ny bruger
+        Registerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -110,6 +112,14 @@ public class SignUpActivity extends AppCompatActivity {
                 }else{
                     Toast.makeText(getApplicationContext(),"Validation failed",Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+        // Tilbage til LoginActivity
+        Tilbagebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SignUpActivity.this,LoginActivity.class);
+                startActivity(i);
             }
         });
     }

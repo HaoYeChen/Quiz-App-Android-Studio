@@ -49,8 +49,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Register"
-        android:id="@+id/editTextRegisterbtn"
+        android:id="@+id/Registerbtn"
         />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tilbage"
+        android:id="@+id/Tilbagebtn"/>
 
     <TextView
         android:id="@+id/textView"

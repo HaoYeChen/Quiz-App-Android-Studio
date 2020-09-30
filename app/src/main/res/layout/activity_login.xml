@@ -10,33 +10,37 @@
 
     <ImageView
         android:id="@+id/imageLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="361dp"
+        android:layout_width="294dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/quizlogoblack" />
+        android:background="@drawable/quizlogolilla" />
 
     <EditText
         android:id="@+id/editTextBrugernavnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Brugernavn"
         android:inputType="text"
-        android:hint="Brugernavn"/>
+        android:drawableLeft="@drawable/ic_person" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:hint="Kodeord"
-        android:id="@+id/editTextKodeordLogin"/>
+        android:id="@+id/editTextKodeordLogin"
+        android:drawableLeft="@drawable/ic_lock" />
+
     <Button
-        android:layout_width="wrap_content"
+        android:id="@+id/Loginbtn"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:id="@+id/Loginbtn"
-        android:textSize="25dp"/>
+        android:textSize="25dp" />
 
     <Button
         android:id="@+id/Regbtn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Register"
         android:textSize="25dp" />
@@ -47,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="310dp"
         android:layout_marginLeft="108dp"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="240dp"
         android:text="Hello World!"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
