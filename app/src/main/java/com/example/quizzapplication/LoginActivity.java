@@ -115,7 +115,7 @@ public class LoginActivity extends AppCompatActivity {
                         });
                         z = "Success";
 
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
                         startActivity(intent);
                         finish();
                     } else {

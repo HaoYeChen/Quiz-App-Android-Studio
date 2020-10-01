@@ -29,10 +29,11 @@
         android:text="Helvede"/>
 
     <Button
-        android:id="@+id/Backbtn"
+        android:id="@+id/Tilbagebtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Tilbage" />
+
 
 </LinearLayout>

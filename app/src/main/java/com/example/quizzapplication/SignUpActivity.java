@@ -109,6 +109,8 @@ public class SignUpActivity extends AppCompatActivity {
                 if (awesomeValidation.validate()){
                     Toast.makeText(getApplicationContext(),"Form validation succesfully..", Toast.LENGTH_SHORT).show();
                     new registeruser().execute("");
+                    Intent i = new Intent(SignUpActivity.this,LoginActivity.class);
+                    startActivity(i);
                 }else{
                     Toast.makeText(getApplicationContext(),"Validation failed",Toast.LENGTH_SHORT).show();
                 }
