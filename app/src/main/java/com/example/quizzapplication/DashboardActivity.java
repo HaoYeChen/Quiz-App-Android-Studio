@@ -14,7 +14,6 @@ import androidx.core.app.ActivityCompat;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -47,11 +46,18 @@ public class DashboardActivity extends AppCompatActivity {
             Class.forName(Classes);
             con = DriverManager.getConnection(url, username,password);
             textView.setText("CONNECTED");
-            statement = con.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM BRUGERS;");
-            while(rs.next()){
-                textViewWelcome.setText("Welcome"+" "+rs.getString("Brugernavn")+" "+(rs.getString("BrugerId")));
+            //henter parameteren fra den LoginActivity, som er brugernavn logged ind med
+            Bundle extras = getIntent().getExtras();
+            if (extras != null){
+                textViewWelcome.setText("Hej "+extras.getString("Brugernavn"));
             }
+
+            //Viser den sidste oprettet i databasen = bruger
+            /*statement = con.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM BRUGERS;");
+            *//*while(rs.next()){
+                textViewWelcome.setText("Welcome"+" "+rs.getString("Brugernavn")+" "+(rs.getString("BrugerId")));
+            }*/
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
             textView.setText("ERROR");

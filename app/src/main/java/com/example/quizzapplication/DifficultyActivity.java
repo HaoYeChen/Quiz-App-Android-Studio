@@ -22,9 +22,9 @@ public class DifficultyActivity extends AppCompatActivity {
 
 
 
-        /*Easybtn = (Button)findViewById(R.id.Easybtn);
+        Easybtn = (Button)findViewById(R.id.Easybtn);
         Hardbtn = (Button)findViewById(R.id.Hardbtn);
-        Hellbtn = (Button)findViewById(R.id.Hellbtn);*/
+        Hellbtn = (Button)findViewById(R.id.Hellbtn);
         Tilbagebtn = (Button)findViewById(R.id.Tilbagebtn);
 
 

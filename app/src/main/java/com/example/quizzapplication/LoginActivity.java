@@ -116,6 +116,8 @@ public class LoginActivity extends AppCompatActivity {
                         z = "Success";
 
                         Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+                        //sender parameteren til den DashboardActivity, som er brugernavn
+                        intent.putExtra("Brugernavn",BrugernavnLogin.getText().toString());
                         startActivity(intent);
                         finish();
                     } else {
