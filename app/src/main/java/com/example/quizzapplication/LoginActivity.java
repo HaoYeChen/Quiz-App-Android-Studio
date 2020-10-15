@@ -87,8 +87,6 @@ public class LoginActivity extends AppCompatActivity {
     public class CheckLogin extends AsyncTask<String, String, String>{
         String z = null;
         Boolean isSuccess = false;
-
-
         @Override
         protected String doInBackground(String... strings) {
             if(con == null){

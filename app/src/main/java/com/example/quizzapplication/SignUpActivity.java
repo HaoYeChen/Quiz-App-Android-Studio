@@ -52,7 +52,7 @@ public class SignUpActivity extends AppCompatActivity {
         //SQL connection
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.INTERNET}, PackageManager.PERMISSION_GRANTED);
         textView = findViewById(R.id.textView);
-        //Strictmode
+        //Strictmode = Giver advarsel så man kan fixes det. Brugt mest til at fange netværk adgang
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         try {
@@ -125,6 +125,8 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
     }
+
+
     public class registeruser extends AsyncTask<String, String , String> {
 
         String z = "";
@@ -141,7 +143,12 @@ public class SignUpActivity extends AppCompatActivity {
                     Class.forName(Classes);
                     con = DriverManager.getConnection(url, username,password);
 
-                    String sql = "INSERT INTO Brugers (Fornavn,Efternavn,Brugernavn,Email,Kodeord,RolleId) VALUES ('"+Fornavn.getText()+"','"+Efternavn.getText()+"','"+Brugernavn.getText()+"','"+Email.getText()+"','"+Kodeord.getText()+"','"+RolleId+"')";
+                    String sql = "INSERT INTO Brugers (Fornavn,Efternavn,Brugernavn,Email,Kodeord,RolleId) VALUES ('"+Fornavn.getText()+"','"
+                            +Efternavn.getText()+"','"
+                            +Brugernavn.getText()+"','"
+                            +Email.getText()+"','"+
+                            Kodeord.getText()+"','"
+                            +RolleId+"')";
                     stmt = con.createStatement();
                     stmt.executeUpdate(sql);
 
