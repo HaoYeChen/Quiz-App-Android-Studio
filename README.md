@@ -7,7 +7,7 @@ This application is directly connected to MSSQL (not exactly the best practice),
 
 
 
-Dependencies for denne projekt:
+Dependencies for this project:
 
 implementation 'net.sourceforge.jtds:jtds:1.3.1'
 
