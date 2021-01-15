@@ -1,7 +1,10 @@
-# Quiz-App-Android-Studio
-Quiz App made with Android Studio
+(This Project is not done)
 
-App'en er direkte tilsluttet til SQL(ikke lige best practice), da jeg prøvet med API fik jeg (java.security.cert.certpathvalidatorexception trust anchor for certification path not found)
+# Quiz-App-Android-Studio
+Quiz App made in Android Studio
+
+This application is directly connected to MSSQL (not exactly the best practice), when I tried with API I got (java.security.cert.certpathvalidatorexception trust anchor for certification path not found)
+
 
 
 Dependencies for denne projekt:
